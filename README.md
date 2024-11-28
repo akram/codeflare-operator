@@ -8,8 +8,8 @@ CodeFlare Stack Compatibility Matrix
 
 | Component                    | Version                                                                                           |
 |------------------------------|---------------------------------------------------------------------------------------------------|
-| CodeFlare Operator           | [v1.11.0](https://github.com/project-codeflare/codeflare-operator/releases/tag/v1.11.0)             |
-| CodeFlare-SDK                | [v0.23.1](https://github.com/project-codeflare/codeflare-sdk/releases/tag/v0.23.1)                |
+| CodeFlare Operator           | [v1.12.0](https://github.com/project-codeflare/codeflare-operator/releases/tag/v1.12.0)             |
+| CodeFlare-SDK                | [v0.24.0](https://github.com/project-codeflare/codeflare-sdk/releases/tag/v0.24.0)                |
 | AppWrapper                   | [v0.27.0](https://github.com/project-codeflare/appwrapper/releases/tag/v0.27.0)                   |
 | KubeRay                      | [v1.1.0](https://github.com/opendatahub-io/kuberay/releases/tag/v1.1.0)                           |
 | Kueue                        | [v0.8.3](https://github.com/opendatahub-io/kueue/releases/tag/v0.8.3)                             |
@@ -110,9 +110,10 @@ For ODH tests additional environment variables are needed:
 2. Once all jobs within the action are completed, verify that compatibility matrix in [README](https://github.com/project-codeflare/codeflare-operator/blob/main/README.md) was properly updated.
 3. Verify that opened pull request to [OpenShift community operators repository](https://github.com/redhat-openshift-ecosystem/community-operators-prod) has proper content.
 4. Once PR is merged, announce the new release in slack and mail lists, if any.
-5. Release automation should auto-merge changes to [ODH CodeFlare operator repo](https://github.com/opendatahub-io/codeflare-operator). Verify the [workflow](https://github.com/project-codeflare/codeflare-operator/actions/workflows/project-codeflare-release.yml) ran successfully and review the new merge-commit and commit history. Same for the [Red Hat CodeFlare Operator repo](https://github.com/red-hat-data-services/codeflare-operator), while also ensuring changes are in the latest `rhoai` release branch. - If the auto-merge fails, conflicts must be resolved and force pushed manually to each downstream repository and release branch.
+5. Release automation should auto-merge changes to [ODH CodeFlare operator repo](https://github.com/opendatahub-io/codeflare-operator). Verify the [workflow](https://github.com/red-hat-data-services/codeflare-operator/actions/workflows/auto-merge-sync.yaml) ran successfully and review the new merge-commit and commit history. Same for the [Red Hat CodeFlare Operator repo](https://github.com/red-hat-data-services/codeflare-operator), while also ensuring changes are in the latest `rhoai` release branch. - If the auto-merge fails, conflicts must be resolved and force pushed manually to each downstream repository and release branch.
 6. In ODH/CFO verify that the [Build and Push action](https://github.com/opendatahub-io/codeflare-operator/actions/workflows/build-and-push.yaml) was triggered and ran successfully.
 7. Make sure that release automation created a PR updating CodeFlare SDK version in [ODH Notebooks repository](https://github.com/opendatahub-io/notebooks). Make sure the PR gets merged.
+8. Run [ODH CodeFlare Operator release workflow](https://github.com/opendatahub-io/codeflare-operator/actions/workflows/odh-release.yml) to produce ODH CodeFlare Operator release.
 
 ### Releases involving part of the stack
 
